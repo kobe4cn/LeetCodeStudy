@@ -4,48 +4,68 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class MedianFinder  {
-    List<Integer> nums;
-//    SortedSet<Integer> nums;
+    PriorityQueue<Integer> min;
+    PriorityQueue<Integer> max;
     public MedianFinder() {
-        nums=new ArrayList<>();
+        min=new PriorityQueue<>();
 
+        max=new PriorityQueue<>((o1, o2) -> o2-o1);
     }
 
     public void addNum(int num) {
-        if(nums.size()==0){
-            nums.add(num);
-        }
-        else if(num<nums.get(0)){
-            List<Integer> temp=new ArrayList<>(nums);
-            nums.clear();
-            nums.add(num);
-            nums.addAll(temp);
-        }else if(num>nums.get(nums.size()-1)){
-            nums.add(num);
-        }else {
-            nums.add(num);
-            nums = nums.stream().sorted().collect(Collectors.toList());
+        max.add(num);
+        min.add(max.remove());
+        if(min.size()>max.size()){
+            max.add(min.remove());
         }
     }
-
     public double findMedian() {
+        if(max.size()==min.size()){
+            return (max.peek()+min.peek())/2.0;
 
+        }else{
+            return max.peek();
+        }
+    }
+    /*
+    *可以实现但是算法复杂度太大了，每次都需要重新对数组进行排序
 
-        if (nums.size() == 1) {
-            return nums.get(0);
+    transient int[] nums;
+    public MedianFinder() {
+        nums=new int[0];
+    }
+    public void addNum(int num) {
+        int len=nums.length;
+        if(len==0){
+            nums=new int[1];
+            nums[0]=num;
+        }else{
+            int[] temp = Arrays.copyOf(nums, len + 1);
+            temp[len]=num;
+            if(temp[len-1]<num){
+                nums=temp;
+            }else {
+                nums = Arrays.stream(temp).sorted().toArray();
+            }
+            }
+    }
+    public double findMedian() {
+        int len=nums.length;
+        if (len == 1) {
+            return nums[0];
         } else {
-            int singleordouble = nums.size() % 2;
-            int temp = nums.size() / 2;
+            int singleordouble = len % 2;
+            int temp = len / 2;
             if (singleordouble == 0) {
 
-                return (nums.get(temp) + nums.get(temp-1))/2.0;
+                return (nums[temp] + nums[temp-1])/2.0;
 
             } else {
-                return nums.get(temp);
+                return nums[temp];
             }
         }
     }
-
+    */
     public static void main(String[] args) {
         MedianFinder finder=new MedianFinder();
         finder.addNum(-1);
