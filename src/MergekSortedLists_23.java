@@ -1,17 +1,9 @@
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.PriorityQueue;
 import java.util.stream.Collectors;
 
 public class MergekSortedLists_23 {
     public ListNode mergeKLists(ListNode[] lists) {
-//        PriorityQueue<ListNode> newqueue=new PriorityQueue<>(new Comparator<ListNode>() {
-//            @Override
-//            public int compare(ListNode o1, ListNode o2) {
-//                return o2.val-o1.val;
-//            }
-//        });
         List<Integer> listnodelist = new ArrayList<>();
         for (int i = 0; i < lists.length; i++) {
             ListNode node = lists[i];
@@ -31,9 +23,6 @@ public class MergekSortedLists_23 {
             listnodelist.add(node.val);
             ListNode nodenext = node.next;
             while (nodenext != null) {
-//                ListNode temp = nodenext;
-//                System.out.print("list:   " +getListNode(temp).toString());
-//                listnodelist.addAll(getListNode(temp));
                 listnodelist.add(nodenext.val);
                 nodenext = nodenext.next;
             }
