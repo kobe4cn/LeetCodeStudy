@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MergeTwoSortedLists_21 {
     public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
@@ -25,19 +24,18 @@ public class MergeTwoSortedLists_21 {
                 nodenext = nodenext.next;
             }
         }
-        System.out.print(listnodelist.toString());
+        //System.out.print(listnodelist.toString());
         return listnodelist;
     }
 
     public static ListNode serListNode(List<Integer> listnodelist) {
-        List<Integer> integerList = listnodelist.stream().sorted().collect(Collectors.toList());
+        List<Integer> integerList = listnodelist.stream().sorted().toList();
        // System.out.println(integerList.toString());
         ListNode listNode1 = new ListNode(0);
         ListNode listNode = listNode1;
         int i = 0;
         while (i < integerList.size()) {
-            ListNode temp = new ListNode(integerList.get(i));
-            listNode.next = temp;
+            listNode.next = new ListNode(integerList.get(i));
             listNode = listNode.next;
             i++;
         }
@@ -95,9 +93,9 @@ public class MergeTwoSortedLists_21 {
                 return "[]";
             }
 
-            String result = "";
+            StringBuilder result = new StringBuilder();
             while (node != null) {
-                result += Integer.toString(node.val) + ", ";
+                result.append(node.val).append(", ");
                 node = node.next;
             }
             return "[" + result.substring(0, result.length() - 2) + "]";
