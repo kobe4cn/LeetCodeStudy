@@ -4,52 +4,62 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 
 public class SearchinRotatedSortedArray_33 {
+    //暴力破解
     public static int search(int[] nums, int target) {
-        if(nums.length==0){
-            return -1;
-        }
-
-        if(!Arrays.stream(nums).anyMatch(value -> value == target)){
-            return -1;
-        }
-        if(nums.length==1){
-            return 0;
-        }
-        int left=0;
-        int right=nums.length-1;
-        while(left<=right){
-            if(target>=nums[left]){
-                if(target==nums[left]){
-                    return left;
-                }else if(left+1<nums.length){
-                    if(nums[left]==nums[left+1]){
-                        return left;
-                    }
-                    if(nums[left]>nums[left+1]){
-                        return -1;
-                    }
-                }
-                    left++;
-
-
-            }
-            else if(target<=nums[right]){
-                if(target==nums[right]){
-                    return right;
-                }else if(right-1>0){
-                    if(nums[left]==nums[left+1]){
-                        return left;
-                    }
-                    if(nums[right]<nums[right-1]){
-                        return -1;
-                    }
-                }
-                    right--;
-
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]==target){
+                return i;
             }
         }
         return -1;
     }
+    //另外一种算法，内存占用更少
+//    public static int search(int[] nums, int target) {
+//        if(nums.length==0){
+//            return -1;
+//        }
+//
+//        if(!Arrays.stream(nums).anyMatch(value -> value == target)){
+//            return -1;
+//        }
+//        if(nums.length==1){
+//            return 0;
+//        }
+//        int left=0;
+//        int right=nums.length-1;
+//        while(left<=right){
+//            if(target>=nums[left]){
+//                if(target==nums[left]){
+//                    return left;
+//                }else if(left+1<nums.length){
+//                    if(nums[left]==nums[left+1]){
+//                        return left;
+//                    }
+//                    if(nums[left]>nums[left+1]){
+//                        return -1;
+//                    }
+//                }
+//                    left++;
+//
+//
+//            }
+//            else if(target<=nums[right]){
+//                if(target==nums[right]){
+//                    return right;
+//                }else if(right-1>0){
+//                    if(nums[left]==nums[left+1]){
+//                        return left;
+//                    }
+//                    if(nums[right]<nums[right-1]){
+//                        return -1;
+//                    }
+//                }
+//                    right--;
+//
+//            }
+//        }
+//        return -1;
+//    }
 
     public static int[] stringToIntegerArray(String input) {
         input = input.trim();
