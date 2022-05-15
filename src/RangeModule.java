@@ -21,6 +21,7 @@ public class RangeModule {
             int end=map.get(start);
             if(end>=left){
                 map.remove(start);
+
                 if(start<left){
                     left=start;
                 }
