@@ -38,10 +38,12 @@ public class MinimumHeightTrees_310 {
 
         int min = Integer.MAX_VALUE;
         for (int i = 0; i < n; i++) {
+            //int level=Integer.MAX_VALUE;
             List<Integer> deplistofroot = new ArrayList<>();
             List<Integer> usedlist = new ArrayList<>();
             DFS(i, keymap, 0, deplistofroot, usedlist);
             int deep = deplistofroot.stream().max(Integer::compareTo).get();
+
             if (deep < min) {
                 min = deep;
                 returnlist.clear();
@@ -66,10 +68,6 @@ public class MinimumHeightTrees_310 {
         maxlevel = 0;
         return;
     }
-
-
-
-
 
     public static int[] stringToIntegerArray(String input) {
         input = input.trim();
