@@ -77,14 +77,14 @@ public class LetterCombinationsofaPhoneNumber_17 {
             if(count[0]==countlen[0]){
                 break;
             }
-            Arrays.stream(count).forEach(System.out::print);
-            System.out.println();
+           // Arrays.stream(count).forEach(System.out::print);
+           //System.out.println();
             StringBuilder stringBuilder=new StringBuilder();
             for (int j = 0; j <count.length ; j++) {
                 List<Character> characters = keymap.get(digarr[j]);
                 stringBuilder.append(characters.get(count[j]));
             }
-            System.out.println(stringBuilder.toString());
+            //System.out.println(stringBuilder.toString());
             returnlist.add(stringBuilder.toString());
 
             i++;
@@ -92,7 +92,7 @@ public class LetterCombinationsofaPhoneNumber_17 {
             if(i>countlen[strlen-1]){
                 i=1;
             }
-            System.out.println("\n");
+            //System.out.println("\n");
         }
         //count for
 
