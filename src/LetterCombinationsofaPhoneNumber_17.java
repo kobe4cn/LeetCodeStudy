@@ -46,8 +46,13 @@ public class LetterCombinationsofaPhoneNumber_17 {
             }
         }
         int strlen=digits.length();
+        //每个数字对应一个字符串的集合，这个集合可能是3位或者是4位的
+        //count用来计算，这个集合已经被遍历的数据，最后一位开始，每次达到这个集合循环的次数之后，往上一个位置上面增加1，
+        //比如234  这个数字对应的是abc def ghi 这三个数组，当 取了a，和d之后需要深度遍历ghi之后，将 def这队列的索引往下移动一位增加1，
+        //count数组就是用来计算和判断是否要往上面一个数字上近位，countlen数组就是为了判断每个数字对应的字母个数，因为7和9对应的是4位
 
         int[] count=new int[strlen];
+
         int[] countlen=new int[strlen];
         for (int i = 0; i < countlen.length; i++) {
             countlen[i]=keymap.get(digarr[i]).size();
@@ -55,6 +60,7 @@ public class LetterCombinationsofaPhoneNumber_17 {
         //Arrays.stream(count).forEach(value -> value=1);
         int i=0;
         //2
+        //
         while(count[0]<=countlen[0]){
             count[strlen-1]=i;
             int c=strlen-1;
