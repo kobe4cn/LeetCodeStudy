@@ -16,6 +16,7 @@ public class IsGraphBipartite_785 {
             return true;
         }
         //map.put(0,"w");
+        //为每个数字都需要图上颜色
         for (int i = 0; i < colors.length; i++) {
             if(colors[i]==0){
                 if(!DFS(i,graph,1)){
@@ -25,14 +26,19 @@ public class IsGraphBipartite_785 {
         }
         return true;
     }
+    //遍历每个父节点的子节点，一直往下遍历，直到子节点遍历完成
     public boolean DFS(int i, int[][] graph,int color ){
         colors[i]=color;
         for (int j = 0; j < graph[i].length; j++) {
+            //如果子节点已经有颜色了，同时颜色又跟父节点相同，那就证明该二分图存在问题。因为两个又线的点应该是不同颜色的，同一个颜色之间不应该是线，这个是二分图的基本规定。
+
             if(colors[graph[i][j]]!=0){
                 if(colors[graph[i][j]]==color){
                     return false;
                 }
             }else{
+                //如果该点没有颜色，那就以父节点的颜色，给子节点赋一个颜色，因为颜色是，0，1，2 数组初始化的时候默认所有的点都是0为没有颜色，所以可以拿3去减父节点的颜色
+                //得到的值不是1就是2，如果DFS遍历出现false那就直接return false
                 if(!DFS(graph[i][j],graph,3-color)){
                     return false;
                 }
