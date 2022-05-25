@@ -13,7 +13,7 @@ public class CloneGraph_133 {
             return new Node(node.val);
         }
         Queue<Node> queue = new LinkedList<>();
-        Map<Node,Node> map=new HashMap<>();
+        Map<Node, Node> map=new HashMap<>();
         Node newNode=new Node(node.val,new ArrayList<>());
         map.put(node,newNode);
         queue.add(node);

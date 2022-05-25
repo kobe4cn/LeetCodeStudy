@@ -8,7 +8,7 @@ import java.util.*;
 //323. 无向图中连通分量的数目
 public class NumberofConnectedComponentsinanUndirectedGraph_323 {
     public int countComponents(int n, int[][] edges) {
-        SortedMap<Integer, List<Integer>> map = new TreeMap<>((o1, o2) -> o1-o2);
+        TreeMap<Integer, List<Integer>> map = new TreeMap<>(Comparator.comparingInt(o -> o));
 
         for (int[] ints : edges
         ) {
@@ -19,30 +19,43 @@ public class NumberofConnectedComponentsinanUndirectedGraph_323 {
                 list.add(ints[1]);
                 map.put(ints[0], list);
             }
+            if (map.containsKey(ints[1])) {
+                map.get(ints[1]).add(ints[0]);
+            } else {
+                List<Integer> list = new ArrayList<>();
+                list.add(ints[0]);
+                map.put(ints[1], list);
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            if(!map.containsKey(i)){
+                map.put(i,new ArrayList<>());
+            }
         }
         int i = 0;
         Queue<Integer> queue = new LinkedList<>();
-        //Iterator<Integer> iterator = map.keySet().iterator();
-        int[] check = new int[n];
+        Iterator<Integer> iterator = map.keySet().iterator();
+//        int[] check = new int[n];
 
-        for (int j = 0; j < check.length; j++) {
-            if(check[j]==0) {
-                queue.add(j);
-                i++;
-                while (!queue.isEmpty()) {
-                    int key = queue.remove();
-                    if (map.containsKey(key)) {
-                        List<Integer> integers = map.get(key);
-                        integers.forEach(integer -> queue.add(integer));
-                        map.remove(key);
-                        check[key] = 1;
-                    }else{
-                        check[key]=1;
-                    }
+//        for (int j = 0; j < check.length; j++) {
+//            if(check[j]==0) {
+        while (iterator.hasNext()) {
+            queue.add(iterator.next());
+            i++;
+            while (!queue.isEmpty()) {
+                int key = queue.remove();
+                if (map.containsKey(key)) {
+                    List<Integer> integers = map.get(key);
+                    integers.forEach(integer -> {queue.add(integer);
+                        //check[integer]=1;
+                    });
+                    map.remove(key);
+                    //check[key] = 1;
                 }
             }
+            iterator = map.keySet().iterator();
         }
-
+        //long count = Arrays.stream(check).filter(value -> value == 0).count();
         return i;
     }
 

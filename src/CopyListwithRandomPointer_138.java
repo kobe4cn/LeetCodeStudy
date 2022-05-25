@@ -7,7 +7,7 @@ public class CopyListwithRandomPointer_138 {
             return head;
         }
         Node node=head;
-        Map<Node,Node> map=new HashMap<>();
+        Map<Node, Node> map=new HashMap<>();
         while(node!=null){
             Node clone=new Node(node.val);
             map.put(node,clone);
