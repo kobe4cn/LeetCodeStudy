@@ -20,10 +20,6 @@ public class ParallelCourses_1136 {
             }
         }
 
-        Iterator<Integer> iterator = map.keySet().iterator();
-        while(iterator.hasNext()){
-
-        }
         int[] res=new int[n];
         for (int i = 1; i <=n; i++) {
             //如果有该门课程的前序课程存在
