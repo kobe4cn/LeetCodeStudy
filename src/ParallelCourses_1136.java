@@ -20,8 +20,14 @@ public class ParallelCourses_1136 {
             }
         }
 
+        Iterator<Integer> iterator = map.keySet().iterator();
+//
+//
+//        }
         int[] res=new int[n];
-        for (int i = 1; i <=n; i++) {
+//        for (int i = 1; i <=n; i++) {
+        while(iterator.hasNext()){
+            int i=iterator.next();
             //如果有该门课程的前序课程存在
             if(map.containsKey(i)){
                 Queue<Integer> queue=new LinkedList<>();
