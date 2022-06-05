@@ -10,39 +10,48 @@ public class Consecutive_Numbers_Sum_829 {
         if(n%2==0){
             //从一半的位置往前遍历
             start=n/2;
-//            for (int i = start; i>0; i--) {
-//                int count=i;
-//                int pre=i;
-//                while(count<=n){
-//                    if(count==n){
-//                        result++;
-//                        break;
-//                    }else {
-//                        if(pre-1==0) break;
-//                        count = count + pre - 1;
-//                        pre=pre-1;
-//                    }
-//                }
-//            }
         }else{
             start=(n+1)/2;
 
         }
+        if(start==n){
+            return result;
+        }
+        long sum=getsum(0,start);
         for (int i = start; i>0; i--) {
+
             int count=i;
             int pre=i;
+            if(sum+count<n){
+                return result;
+            }else{
+                sum--;
+            }
             while(count<=n){
                 if(count==n){
                     result++;
                     break;
                 }else {
                     if(pre-1==0) break;
-                    count = count + pre - 1;
-                    pre=pre-1;
+                    int temp=pre-1;
+                    count = count + temp;
+                    pre=temp;
                 }
             }
         }
         return result;
+    }
+
+    public long getsum(int a,int b){
+        long sum = a;
+        long n = b - a;
+        //循环n次
+        for (int i = 0; i <n ; i++) {
+            a = a +1;
+            sum+=a;
+        }
+        return sum;
+
     }
 
     public static void main(String[] args) throws IOException {
