@@ -55,7 +55,6 @@ public class mplement_strStr_28 {
                 j++;
                 next[i] = j;
             }
-
         }
     }
 
