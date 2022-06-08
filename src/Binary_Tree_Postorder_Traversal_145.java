@@ -6,37 +6,35 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-//144. 二叉树的前序遍历
-public class Binary_Tree_Preorder_Traversal_144 {
-    public List<Integer> preorderTraversal(TreeNode root) {
+//145. 二叉树的后序遍历
+public class Binary_Tree_Postorder_Traversal_145 {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        Queue<TreeNode> linkedList=new LinkedList<>();
         List<Integer> list=new ArrayList<>();
-        Queue<TreeNode> queue=new LinkedList<>();
-        if(root==null){
+        if(root==null)
             return list;
-        }
-        queue.offer(root);
-        DFS(queue,list);
+        linkedList.offer(root);
+        DFS(linkedList,list);
         return list;
-
     }
 
-    public void DFS(Queue<TreeNode> queue,List<Integer> list){
+
+    public void DFS(Queue<TreeNode> queue, List<Integer> list){
         while(!queue.isEmpty()){
             TreeNode treeNode=queue.remove();
-            list.add(treeNode.val);
+
             if(treeNode.left!=null){
-                queue.offer(treeNode.left);
+                queue.add(treeNode.left);
                 DFS(queue,list);
             }
+
             if(treeNode.right!=null){
-                queue.offer(treeNode.right);
+                queue.add(treeNode.right);
                 DFS(queue,list);
             }
+            list.add(treeNode.val);
         }
     }
-
-
-
 
 
     public static TreeNode stringToTreeNode(String input) {
@@ -106,7 +104,7 @@ public class Binary_Tree_Preorder_Traversal_144 {
         while ((line = in.readLine()) != null) {
             TreeNode root = stringToTreeNode(line);
 
-            List<Integer> ret = new Binary_Tree_Preorder_Traversal_144().preorderTraversal(root);
+            List<Integer> ret = new Binary_Tree_Postorder_Traversal_145().postorderTraversal(root);
 
             String out = integerArrayListToString(ret);
 
