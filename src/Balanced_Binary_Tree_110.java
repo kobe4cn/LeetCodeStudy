@@ -36,40 +36,7 @@ public class Balanced_Binary_Tree_110 {
         }
         return result;
     }
-//    public int DFS(TreeNode root,int level) {
-//        TreeNode treeNode=root;
-//        TreeNode left=treeNode.left;
-//        TreeNode right=treeNode.right;
-//        if(left!=null){
-//            level+=DFS(left,level);
-//        }
-//        if(right!=null){
-//            level+=DFS(right,level);
-//        }
-//        if(left==right && left==null){
-//            level=0;
-//        }
-//        return level;
-
-
-//        countlevel++;
-//        TreeNode left = root.left;
-//        TreeNode right = root.right;
-//        if (left == right && left == null) {
-//            if(count>0)
-//            leftpath.add(count);
-//            if(right1>0)
-//            rightpath.add(right1);
-//        }
-//        if (left != null) {
-//            count=countlevel;
-//            DFS(left,countlevel, count,right1);
-//        }
-//        if (right != null) {
-//            right1=countlevel;
-//            DFS(right,countlevel, count,right1);
-//        }
-//    }
+//
 
 
 
