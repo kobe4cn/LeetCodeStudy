@@ -10,7 +10,7 @@ public class Find_K_th_Smallest_Pair_Distance_719 {
         Arrays.sort(nums);
         //int value=nums.length*(nums.length-1)/2;
         int temp=nums[nums.length-1]-nums[0]+1;
-
+        //申请的数组内存空间是关键，最大数-最小数据+1
         int[] arr=new int[temp];
         for (int i = 0; i < nums.length; i++) {
 
