@@ -45,15 +45,7 @@ public class Next_Greater_Element_III_556 {
                         changepoint=i-1;
                         break;
                     }
-//                    if(pre!=-1 && chars[pre]>chars[i-1]){
-//                        char temp=chars[pre];
-//                        chars[pre]=chars[i-1];
-//                        chars[i-1]=temp;
-//                        changepoint=i-1;
-//                        break;
-//                    }else {
 //
-//                    }
                 }else{
                     pre.add(chars[i]);
                 }
@@ -62,12 +54,7 @@ public class Next_Greater_Element_III_556 {
         StringBuilder str=new StringBuilder();
         if(pre.size()>0) {
             char[] chars1 = Arrays.copyOfRange(chars, 0, changepoint + 1);
-            //char[] chars2 = Arrays.copyOfRange(chars, changepoint+1, chars.length);
 
-//        for (char c:chars2
-//             ) {
-//            list.add(Integer.valueOf(String.valueOf(c)));
-//        }
             for (char c : chars1
             ) {
                 str.append(c);
@@ -87,10 +74,9 @@ public class Next_Greater_Element_III_556 {
         int anInt =(int)Long.parseLong(str.toString()) ;
         if (anInt>n){
             return anInt;
-        }else{
+        }else {
             return -1;
         }
-//        return anInt;
     }
 
     public static void main(String[] args) throws IOException {
