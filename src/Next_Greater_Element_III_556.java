@@ -8,6 +8,7 @@ import java.util.List;
 //556. 下一个更大元素 III
 public class Next_Greater_Element_III_556 {
     //题目的本质就是从后往前遍历，找到当前位置，比前一位置大的数，就可以准备交换，但是在交换之前，第一个是判断下这个位置之后的位置上有没有比当前位置上数字更小的数来跟前一位交换，如果有就拿最小的数字交换，同时交换位置i-1位之后的元素因为题目是要求最小数字，所以必须得按照顺序排序下。
+    //一次次的提交之后，出现的场景不断的优化和考虑清楚，所以代码思路挺乱的。哈哈
 
     public int nextGreaterElement(int n) {
         String sn=String.valueOf(n);
