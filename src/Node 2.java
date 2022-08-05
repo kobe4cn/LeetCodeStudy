@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-
-class Node {
+class Node_2 {
 //    int val;
 //    Node next;
 //    Node random;
@@ -12,18 +9,18 @@ class Node {
 //        this.random = null;
 //    }
 
-    public int val;
-    public List<Node> neighbors;
-    public Node() {
-        val = 0;
-        neighbors = new ArrayList<Node>();
-    }
-    public Node(int _val) {
-        val = _val;
-        neighbors = new ArrayList<Node>();
-    }
-    public Node(int _val, ArrayList<Node> _neighbors) {
-        val = _val;
-        neighbors = _neighbors;
-    }
+//    public int val;
+//    public List<Node> neighbors;
+//    public Node() {
+//        val = 0;
+//        neighbors = new ArrayList<Node>();
+//    }
+//    public Node(int _val) {
+//        val = _val;
+//        neighbors = new ArrayList<Node>();
+//    }
+//    public Node(int _val, ArrayList<Node> _neighbors) {
+//        val = _val;
+//        neighbors = _neighbors;
+//    }
 }
