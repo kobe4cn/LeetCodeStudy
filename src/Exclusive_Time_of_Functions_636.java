@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Exclusive_Time_of_Functions_636 {
     public int[] exclusiveTime(int n, List<String> logs) {
-        Deque<int[]> stack = new ArrayDeque<int[]>(); // {idx, 开始运行的时间}
+        Deque<int[]> stack = new ArrayDeque<int[]>();//{idx, 开始运行的时间}
         int[] res = new int[n];
         for (String log : logs) {
             int idx = Integer.parseInt(log.substring(0, log.indexOf(':')));
