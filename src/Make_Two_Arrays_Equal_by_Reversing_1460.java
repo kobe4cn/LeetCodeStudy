@@ -14,6 +14,9 @@ public class Make_Two_Arrays_Equal_by_Reversing_1460 {
                 }
         }
 
+
+
+
         return true;
     }
 
