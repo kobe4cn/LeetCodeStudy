@@ -19,7 +19,7 @@ public class Defuse_the_Bomb_1652 {
                 //int kk= Math.abs(k);
                 for (int j = -1; j >=k; j--) {
                     if(ii+j==-1){
-                        ii=code.length+j;
+                        ii=code.length-1+Math.abs(j);
                     }
                     copy[temp]+=code[ii+j];
                 }
