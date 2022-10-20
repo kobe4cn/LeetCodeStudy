@@ -16,6 +16,8 @@ public class K_th_Symbol_in_Grammar_779 {
 
 
 
+
+
     public static void main(String[] args) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String line;
