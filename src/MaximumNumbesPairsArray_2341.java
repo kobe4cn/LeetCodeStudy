@@ -5,15 +5,18 @@ import java.io.InputStreamReader;
 
 //2341. 数组能形成多少数对
 public class MaximumNumbesPairsArray_2341 {
+
     public int[] numberOfPairs(int[] nums) {
-        boolean check=true;
+
         int total=0;
+        for (int j = 0; j < nums.length-1; j++) {
+            boolean check=true;
         while(check){
-            int count=0;
-            for (int i = 1; i < nums.length; i++) {
-                if(nums[0]==nums[i]){
+            int count= 0;
+            for (int i = j+1; i < nums.length; i++) {
+                if(nums[j]==nums[i]){
                     nums=removeElement(nums, i);
-                    nums=removeElement(nums, 0);
+                    nums=removeElement(nums, j);
                     count++;
                     total++;
                     break;
@@ -22,6 +25,7 @@ public class MaximumNumbesPairsArray_2341 {
             if(count==0){
                 check=false;
             }
+        }
         }
         int[] result=new int[2];
         result[0]=total;
@@ -84,7 +88,7 @@ public class MaximumNumbesPairsArray_2341 {
             
             String out = integerArrayToString(ret);
             
-            //System.out.print(out);
+            System.out.print(out);
         }
     }
 }
