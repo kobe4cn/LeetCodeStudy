@@ -21,17 +21,25 @@ class IslandPerimeter_463 {
                     //上
                     if(i>0 && grid[i-1][j]!=1){
                         incount++;
+                    }else if(i==0){
+                        incount++;
                     }
                     //下
                     if((i+1)<grid.length && grid[i+1][j]!=1){
+                        incount++;
+                    }else if(i== grid.length-1){
                         incount++;
                     }
                     //左
                     if(j>0 && grid[i][j-1]!=1){
                         incount++;
+                    }else if(j==0){
+                        incount++;
                     }
                     //右
                     if((j+1)<grid[i].length && grid[i][j+1]!=1){
+                        incount++;
+                    }else if(j==grid[i].length-1){
                         incount++;
                     }
                     total+=incount;
